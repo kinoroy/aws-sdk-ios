@@ -75,6 +75,10 @@ public struct Tokens {
     /// Expiration date if available.
     public let expiration: Date?
     
+    deinit {
+        print("**DEINIT TOKENS WITH ID \(self.idToken)")
+    }
+    
 }
 
 // MARK: `AWSIdentityProviderManager` protocol methods

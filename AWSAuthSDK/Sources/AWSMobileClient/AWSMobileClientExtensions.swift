@@ -776,7 +776,8 @@ extension AWSMobileClient {
                         completionHandler(nil, error)
                         self.invokeSignInCallback(signResult: nil, error: error)
                     } else if let session = task.result {
-                        completionHandler(self.userSessionToTokens(userSession: session), nil)
+                        let tokens = self.userSessionToTokens(userSession: session)
+                        completionHandler(tokens, nil)
                         self.federationProvider = .userPools
                         if (self.currentUserState != .signedIn) {
                             self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [:])
